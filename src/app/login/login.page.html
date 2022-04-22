@@ -1,0 +1,27 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="title">
+    <h4>Login</h4>
+  </div>
+
+  <ion-input type = "email" [(ngModel)]="email" placeholder="email" class="primary-input"></ion-input>
+  <ion-input  type = "email"  [(ngModel)]="password" placeholder="Password" type="password" class="primary-input"></ion-input>
+
+  <div class="ion-margin-top ion-text-right forget">
+    <a [routerLink]="['/forgot']" routerLinkActive="router-link-active" >Forgot Password?</a>
+  </div>
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" (click)="login()" >LOGIN</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a [routerLink]="['/register']" >Don't have an account</a>
+    <br>
+    <br>
+    <a (click)="dismiss()">Close</a>
+  </div>
+</ion-content>

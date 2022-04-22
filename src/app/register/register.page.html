@@ -1,0 +1,41 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding" >
+  <div class="title">
+    <h4>Signup</h4>
+    <p>Register with us</p>
+  </div>
+
+  <ion-input [(ngModel)]="name" placeholder="Full Name" class="primary-input"></ion-input>
+  <ion-input  [(ngModel)]="email" placeholder="Email" class="primary-input"></ion-input>
+  <ion-input [(ngModel)]="password" placeholder="Password" type="password" class="primary-input"></ion-input>
+  <ion-input [(ngModel)]="cpassword" placeholder="Confirm Password" type="password" class="primary-input"></ion-input>
+  <ion-input [(ngModel)]="phone" placeholder="Mobile" type="primary-input" class="primary-input"></ion-input>
+  <ion-item color ="aliceblue" class="primary-input" >
+    <ion-label >Gender</ion-label >
+    <ion-select placeholder="Select" class="primary-input">
+      <ion-select-option [(ngModel)]="gender"value="f">Female</ion-select-option>
+      <ion-select-option [(ngModel)]="gender" value="m">Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <!-- <ion-button class="primary-input" color = "aliceblue" >
+    <ion-icon lazy="true" name="pdf"></ion-icon>
+    <ion-label slot="start">Upload Aadhar</ion-label> -->
+    <!-- <input type="file" (change)="loadImageFromDevice($event)" id="file-input"> -->
+  <!-- </ion-button> -->
+
+
+  <p>By signing up you're agreed to our Terms & Conditions</p>
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" (click)="register()">SIGN UP</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a routerLink="/login" (click) ="already()">Already have an account</a>
+    <br><br>
+    <a (click)="dismiss()">Close</a>
+  </div>
+</ion-content>
