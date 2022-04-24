@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'welcome',
+    redirectTo: 'homescreen', //Later on channge to welcome
     pathMatch: 'full'
   },
   {
@@ -30,6 +30,30 @@ const routes: Routes = [
   {
     path: 'forgot',
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'accident',
+    loadChildren: () => import('./accident/accident.module').then( m => m.AccidentPageModule)
+  },
+  {
+    path: 'fire-incident',
+    loadChildren: () => import('./fire-incident/fire-incident.module').then( m => m.FireIncidentPageModule)
+  },
+  {
+    path: 'natural-disaster',
+    loadChildren: () => import('./natural-disaster/natural-disaster.module').then( m => m.NaturalDisasterPageModule)
+  },
+  {
+    path: 'harassment',
+    loadChildren: () => import('./harassment/harassment.module').then( m => m.HarassmentPageModule)
+  },
+  {
+    path: 'emergency-contacts',
+    loadChildren: () => import('./emergency-contacts/emergency-contacts.module').then( m => m.EmergencyContactsPageModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
 ];
 

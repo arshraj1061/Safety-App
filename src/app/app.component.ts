@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from "@angular/router";
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -13,6 +13,7 @@ import firebaseConfig from './firebase';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  modalCtrl: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -28,4 +29,13 @@ export class AppComponent {
     });
     
   }
+  ngOnInit() {}
+
+  async dismiss() {
+    await this.modalCtrl.dismiss();
+  }
+
+  // async emergency(){
+  //   this.dismiss()
+  // }
 }
