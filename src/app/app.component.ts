@@ -14,6 +14,7 @@ import firebaseConfig from './firebase';
 })
 export class AppComponent {
   modalCtrl: any;
+  menu: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -31,11 +32,15 @@ export class AppComponent {
   }
   ngOnInit() {}
 
-  async dismiss() {
-    await this.modalCtrl.dismiss();
-  }
+  //async dismiss() {
+   // await this.modalCtrl.dismiss();
+  //}
 
   // async emergency(){
   //   this.dismiss()
   // }
+  //dismiss(){
+  //this.menu.toggle();
+
+  //}
 }
