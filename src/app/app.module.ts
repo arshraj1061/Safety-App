@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 // import {environment} from 'src/environments/environment';
 import firebaseConfig from './firebase';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,13 +25,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
      IonicModule.forRoot(),
       AppRoutingModule,
       AngularFireAuthModule,    
-      
+
     ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] 
 })
 export class AppModule {}
