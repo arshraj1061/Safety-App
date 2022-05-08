@@ -15,6 +15,9 @@ import { AngularFireModule } from '@angular/fire';
 import firebaseConfig from './firebase';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+// import { AccidentPage } from './accident/accident.page';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,13 +27,16 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
     BrowserModule,
      IonicModule.forRoot(),
       AppRoutingModule,
-      AngularFireAuthModule,    
+      AngularFireAuthModule,
+      // IonicStorageModule.forRoot()
 
     ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
+    Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent] 

@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
+  mapsKey: 'AIzaSyABR3CwRaClKVAz9dtLcsuSF0LmsuQ2--k'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

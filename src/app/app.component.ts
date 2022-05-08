@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import * as firebase from 'firebase/app'
 import firebaseConfig from './firebase';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ import firebaseConfig from './firebase';
 })
 export class AppComponent {
   modalCtrl: any;
+  menu: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -31,11 +32,15 @@ export class AppComponent {
   }
   ngOnInit() {}
 
-  async dismiss() {
-    await this.modalCtrl.dismiss();
-  }
+  //async dismiss() {
+   // await this.modalCtrl.dismiss();
+  //}
 
   // async emergency(){
   //   this.dismiss()
   // }
+  //dismiss(){
+  //this.menu.toggle();
+
+  //}
 }

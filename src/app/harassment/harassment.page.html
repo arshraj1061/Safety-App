@@ -1,15 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>harassment</ion-title>
+  <ion-toolbar color="danger">
+    <ion-title>Physical Harassment Section</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <div class="Camera">
     <img src="{{imgURL}}" height ="200" width="200" />
 
     <ion-button (click) = "getCamera()">From Camera</ion-button>
     <ion-button (click) = "getGallery()">From Gallery</ion-button>
+  </div>
+
+  <div class="action-button">
+    <ion-button expand="block">
+      Send live location to trusted contacts
+    </ion-button>
+    <ion-button expand="block">
+      send alert
+    </ion-button>
   </div>
 
 </ion-content>
