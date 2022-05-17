@@ -8,6 +8,9 @@ import { HarassmentPageRoutingModule } from './harassment-routing.module';
 
 import { HarassmentPage } from './harassment.page';
 
+import { SMS } from '@ionic-native/sms/ngx';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,7 @@ import { HarassmentPage } from './harassment.page';
     IonicModule,
     HarassmentPageRoutingModule
   ],
+  providers: [SMS],
   declarations: [HarassmentPage]
 })
 export class HarassmentPageModule {}

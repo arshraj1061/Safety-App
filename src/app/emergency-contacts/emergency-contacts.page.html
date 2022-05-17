@@ -6,10 +6,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="action-button">
-    <ion-button expand="block">
-      Add Contacts
-    </ion-button>
-  </div>
+<ion-content>  
+    <ion-input [(ngModel)]="name" placeholder="Full Name" class="primary-input"></ion-input>
+
+    <ion-input [(ngModel)]="phone" placeholder="Mobile" type="primary-input" class="primary-input"></ion-input> 
+    <ion-button  (click)="addNum()">Add number</ion-button>
+    
+
+    <ion-list>
+      <ion-item *ngFor="let contact of contacts">
+        <label>
+          <h2>{{ contact.person.name }}</h2>
+          <p>Number : <strong>{{ contact.person.phone }}</strong></p>
+        </label>
+
+      </ion-item>
+    </ion-list>
+
+
+  
 </ion-content>

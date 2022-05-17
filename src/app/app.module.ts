@@ -17,7 +17,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-// import { AccidentPage } from './accident/accident.page';
+
+import firebase from 'firebase';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+// import { SMS } from '@ionic-native/sms/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +33,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
      IonicModule.forRoot(),
       AppRoutingModule,
       AngularFireAuthModule,
+      ReactiveFormsModule
       // IonicStorageModule.forRoot()
 
     ],
@@ -37,6 +43,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
     Camera,
     Geolocation,
     NativeGeocoder,
+    SocialSharing,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent] 

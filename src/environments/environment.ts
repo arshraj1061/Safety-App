@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  mapsKey: 'AIzaSyABR3CwRaClKVAz9dtLcsuSF0LmsuQ2--k'
+  mapsKey: 'AIzaSyABR3CwRaClKVAz9dtLcsuSF0LmsuQ2--k',
+  TWILIO_ACCOUNT_SID : "ACf87df0ff6af998d372f03940bc689965",
+  TWILIO_AUTH_TOKEN: "9fbca37c7b4d95c9af0d93496136e265"
 };
 
 
@@ -16,3 +18,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
