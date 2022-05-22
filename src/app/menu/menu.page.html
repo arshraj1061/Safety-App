@@ -14,24 +14,31 @@
         </ion-label>
       </div>
       <ion-list class="menu-items" lines="none">
-        <ion-items [routerLink] = "['/emergency-contacts']" routerLinkActive="router-link-active" ><p>
+        
+        <ion-list (click)="forgot()" ><p>
           <ion-icon name="people"></ion-icon>Update Emergency Contact</p>
-        </ion-items>
-        <ion-items [routerLink] = "['/harassment']" routerLinkActive="router-link-active"><p>
+        </ion-list>
+
+        <ion-list [routerLink] = "['/harassment']" routerLinkActive="router-link-active"><p>
           <ion-icon name="woman"></ion-icon>Woman Harassment</p>
-        </ion-items>
-        <ion-items [routerLink] = "['/natural-disaster']" routerLinkActive="router-link-active"><p>
+        </ion-list>
+        
+        <ion-list [routerLink] = "['/natural-disaster']" routerLinkActive="router-link-active"><p>
           <ion-icon name="rainy"></ion-icon>Natural Disaster</p>
-        </ion-items>
-        <ion-items [routerLink] = "['/accident']" routerLinkActive="router-link-active"><p>
+        </ion-list>
+        
+        <ion-list [routerLink] = "['/accident']" routerLinkActive="router-link-active"><p>
           <ion-icon name="add"></ion-icon>Accident</p>
-        </ion-items>
-        <ion-items [routerLink] = "['/fire-incident']" routerLinkActive="router-link-active"><p>
+        </ion-list>
+        
+        <ion-list [routerLink] = "['/fire-incident']" routerLinkActive="router-link-active"><p>
           <ion-icon name="flame"></ion-icon>Fire-Gas Incident</p>
-        </ion-items>
-        <ion-items [routerLink] = "['/welcome']" routerLinkActive="router-link-active"><p>
+        </ion-list>
+        
+        <ion-list (click)="logout()" routerLinkActive="router-link-active"><p>
           <ion-icon name="exit-outline"></ion-icon>Sign-out</p>
-        </ion-items>
+        </ion-list>
+      
       </ion-list>
     </ion-content>
   </ion-menu>

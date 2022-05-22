@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-forgot',
@@ -7,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPage implements OnInit {
   email: string = "";
-
-  constructor() { }
+  
+  constructor(private router: Router,
+    private afAuth:AngularFireAuth) { }
 
   ngOnInit() {
+    
+  }
+
+  forgot(email : string){
+      return this.afAuth.sendPasswordResetEmail(email).then((err) =>{
+        alert( `Reset link sent to ${email}`)
+      })
   }
 
 }

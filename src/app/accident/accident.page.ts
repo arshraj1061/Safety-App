@@ -1,6 +1,5 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import {Platform} from '@ionic/angular';
-// import {Geolocation} from '@ionic-native/geolocation/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 declare var google: any;
 

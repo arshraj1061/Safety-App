@@ -6,10 +6,34 @@
 
 <ion-content>
 
+  <div #map id="map"></div>
+  <div class="ion-padding">
+    <ion-button (click)="getCurrentCoordinates()" expand="block">
+      Get Location
+    </ion-button>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Location Coordinates</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        Latitue
+      </ion-label>
+      <ion-badge color="danger" slot="end">{{latitude}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Longitude
+      </ion-label>
+      <ion-badge color="danger" slot="end">{{longitude}}</ion-badge>
+    </ion-item>
+    </ion-list>    
+  </div>
+
   <div class="Camera">
     <img src="{{imgURL}}" height ="200" width="200" />
-
-    <ion-button (click) = "getCamera()">From Camera</ion-button>
+    
+     <ion-button (click) = "getCamera()">From Camera</ion-button>
     <ion-button (click) = "getGallery()">From Gallery</ion-button>
   </div>
 

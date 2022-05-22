@@ -11,7 +11,7 @@
   <ion-input  type = "email"  [(ngModel)]="password" placeholder="Password" type="password" class="primary-input"></ion-input>
 
   <div class="ion-margin-top ion-text-right forget">
-    <a [routerLink]="['/forgot']" routerLinkActive="router-link-active" >Forgot Password?</a>
+    <a (click)="forgot()" routerLinkActive="router-link-active"  >Forgot Password</a>
   </div>
 
   <div class="ion-margin-top">
@@ -19,7 +19,7 @@
   </div>
 
   <div class="ion-margin-top ion-text-center">
-    <a [routerLink]="['/register']" >Don't have an account</a>
+    <a routerLink="/register" (click)="donthave()" >Don't have an account</a>
     <br>
     <br>
     <a (click)="dismiss()">Close</a>

@@ -27,12 +27,19 @@ export class LoginPage implements OnInit {
     await this.modalCtrl.dismiss();
   }
 
-  async donthave(){
-    this.dismiss()
-    // this.router.navigateByUrl("/register",{
-    //   replaceUrl: true
-    // })
+  donthave(){
+    this.router.navigateByUrl("/register",{
+      replaceUrl: true
+    })
   }
+
+  forgot(){
+  this.router.navigateByUrl("/forgot",{
+    replaceUrl:true
+  }).then((s) =>{
+    this.dismiss();
+  })
+ }
 
   async login() {
     const { email, password } = this;

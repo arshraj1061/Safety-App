@@ -20,8 +20,9 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
-    "@awesome-cordova-plugins/camera": "^5.41.0",
+    "@awesome-cordova-plugins/camera": "^5.42.0",
     "@awesome-cordova-plugins/geolocation": "^5.41.0",
+    "@awesome-cordova-plugins/sms": "^5.41.0",
     "@awesome-cordova-plugins/social-sharing": "^5.41.0",
     "@capacitor-community/google-maps": "^2.0.0-beta.1",
     "@capacitor/android": "^3.5.0",
@@ -33,6 +34,7 @@
     "@capacitor/keyboard": "1.2.2",
     "@capacitor/status-bar": "1.0.8",
     "@ionic-native/camera": "^5.36.0",
+    "@ionic-native/camera-preview": "^5.36.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/geolocation": "^5.36.0",
     "@ionic-native/native-geocoder": "^5.36.0",
@@ -77,6 +79,7 @@
     "codelyzer": "^6.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-camera-preview": "^0.12.3",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
@@ -113,7 +116,9 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-camera": {},
       "cordova-sqlite-storage": {},
-      "cordova-plugin-nativegeocoder": {}
+      "cordova-plugin-nativegeocoder": {},
+      "cordova-sms-plugin": {},
+      "cordova-plugin-camera-preview": {}
     },
     "platforms": [
       "ios",
