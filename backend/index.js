@@ -1,5 +1,5 @@
 'use strict';
-const environment = require('../src/environments/environment')
+// const environment = require('../src/environments/environment')
 const Hapi = require('@hapi/hapi');
 const Nexmo = require('nexmo');
 const {
@@ -7,8 +7,8 @@ const {
 } = require('console');
 
 const nexmo = new Nexmo({
-    apiKey: environment.NEXMO_API_KEY, /** PUT YOUR KEY HERE! **/
-    apiSecret: environment.NEXMO_SECRET_KEY /** PUT YOUR SECRET HERE! **/
+    apiKey: '7cd9b870', /** PUT YOUR KEY HERE! **/
+    apiSecret: 'GR6MvQW5gAa43luo' /** PUT YOUR SECRET HERE! **/
 }, {
     debug: true
 });
