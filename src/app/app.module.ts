@@ -21,6 +21,8 @@ import firebase from 'firebase';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +33,8 @@ import { SMS } from '@awesome-cordova-plugins/sms/ngx';
      IonicModule.forRoot(),
       AppRoutingModule,
       AngularFireAuthModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      HttpClientModule
       // IonicStorageModule.forRoot()
 
     ],

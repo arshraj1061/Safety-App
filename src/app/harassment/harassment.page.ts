@@ -5,8 +5,12 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { environment } from '../../environments/environment';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CameraPreview } from '@ionic-native/camera-preview/ngx';
-
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { SMS } from '@awesome-cordova-plugins/sms/ngx';
+import { AlertController } from '@ionic/angular';
+
 // import { Twilio } from "twilio";
 // import * as twilio from 'twilio'
 
@@ -24,6 +28,9 @@ declare var google: any;
 })
 
 export class HarassmentPage implements OnInit {
+  public text: string;
+  public from: string;
+  public to: string;
 
   @ViewChild("map")  mapElement;
   private map: any;
@@ -39,6 +46,8 @@ export class HarassmentPage implements OnInit {
     public firestore: AngularFirestore,
     private sms: SMS,
     private geolocation: Geolocation,
+    private http: HttpClient,
+    private alert: AlertController
     // private preview: CameraPreview,
     // private sanitizer: DomSanitizer
   ) {
@@ -125,6 +134,23 @@ export class HarassmentPage implements OnInit {
      });
   } 
 
+  public sendSms() {
+    const payload = new HttpParams()
+      .set('from', this.from)
+      .set('to', this.to)
+      .set('text', this.text);
 
+    return this.http.post('http://sms.com:3000/send-sms', payload)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          this.alert.create({ message: 'Oops!'})
+            .then((alert) => alert.present());
+          return throwError('Oops!');
+        }))
+      .subscribe(async (resp: any) => {
+        const alert = await this.alert.create({ message: resp.message });
+        await alert.present();
+      });
+  }
 
 }

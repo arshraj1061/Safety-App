@@ -5,12 +5,33 @@
 </ion-header>
 
 <ion-content>
-  <div class="action-button">
-    <ion-button expand="block">
-      check weather Forecast
-    </ion-button>
-    <ion-button expand="block">
-      Send Alert to Rescue Team
-    </ion-button>
-  </div>
+
+  <ion-grid>
+   
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter the sender phone #" [(ngModel)]="from" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter the destination phone #" [(ngModel)]="to" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter your SMS message" [(ngModel)]="text"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-button expand="full" color="primary" (click)="sendSms()">
+          Send It!
+          <ion-icon slot="end" name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

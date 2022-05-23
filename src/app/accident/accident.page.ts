@@ -54,7 +54,4 @@ export class AccidentPage implements OnInit {
        console.log('Error getting location', error);
      });
   } 
-  // startTracking(){}
-  // showHistoryRoute(){}
-
 }

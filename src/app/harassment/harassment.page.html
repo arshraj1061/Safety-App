@@ -11,40 +11,42 @@
     <ion-button (click)="getCurrentCoordinates()" expand="block">
       Get Location
     </ion-button>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>Location Coordinates</ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>
-        Latitue
-      </ion-label>
-      <ion-badge color="danger" slot="end">{{latitude}}</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        Longitude
-      </ion-label>
-      <ion-badge color="danger" slot="end">{{longitude}}</ion-badge>
-    </ion-item>
-    </ion-list>    
   </div>
 
-  <div class="Camera">
+  <span class="Camera">
     <img src="{{imgURL}}" height ="200" width="200" />
     
      <ion-button (click) = "getCamera()">From Camera</ion-button>
     <ion-button (click) = "getGallery()">From Gallery</ion-button>
-  </div>
+  </span>
 
-  <div class="action-button">
-    <ion-button expand="block">
-      Send live location to trusted contacts
-    </ion-button>
+  <ion-grid>
+   
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter the sender phone #" [(ngModel)]="from" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter the destination phone #" [(ngModel)]="to" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
     
-    <ion-button expand="block" (click)="sendAlert()">
-      Send Alert
-    </ion-button>
-  </div>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter your SMS message" [(ngModel)]="text"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-button expand="full" color="primary" (click)="sendSms()">
+          Send It!
+          <ion-icon slot="end" name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
