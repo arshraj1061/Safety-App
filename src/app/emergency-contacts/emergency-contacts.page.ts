@@ -4,7 +4,10 @@ import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { NavController } from "@ionic/angular";
 // import  {firebase} from 'firebase/firestore';
 // import firebase from 'firebase';
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
+import { AngularFireStorage } from "@angular/fire/storage";
+import {Observable} from 'rxjs';
+
 
 @Component({
   selector: "app-emergency-contacts",
@@ -18,9 +21,12 @@ export class EmergencyContactsPage implements OnInit {
   num:number= +91;
   name: any;
   contact : any;
+  items : Observable<any[]>;
+  itemsRef: AngularFirestoreCollection;
 
   constructor(public navCtrl: NavController , public firestore: AngularFirestore) {
-    
+    this.itemsRef = firestore.collection('contacts')
+    this.items = this.itemsRef.valueChanges();
   }
 
   ngOnInit() {
@@ -71,6 +77,11 @@ export class EmergencyContactsPage implements OnInit {
    }).catch((err) => {
      console.log("Error " + err);
    })
+  }
+
+  remove(){
+    const contactRef = this.firestore.collection('contacts');
+    contactRef.doc('id').delete();
   }
 
 }

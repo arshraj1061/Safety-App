@@ -17,7 +17,11 @@
       <ion-item *ngFor="let contact of contacts">
         <label>
           <h2>{{ contact.person.name }}</h2>
-          <p>Number : <strong>{{ contact.person.phone }}</strong></p>
+          <p>Number : <strong>{{ contact.person.phone }}</strong>
+          <ion-button slot="end" fill ="clear" color = "danger" (click)="remove()">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+          </p>
         </label>
 
       </ion-item>
