@@ -1,8 +1,10 @@
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+declare var google: any;
 
 
 @Component({
@@ -15,8 +17,15 @@ export class NaturalDisasterPage implements OnInit {
   public text: string;
   public from: string;
   public to: string;
+  @ViewChild("map")  mapElement;
+  private map: any;
+
+
+  latitude:any= 0;
+  longitude:any= 0;
+
   
-  constructor(private http: HttpClient, private alert: AlertController) { }
+  constructor(private http: HttpClient, private alert: AlertController,private geolocation: Geolocation) { }
 
   public sendSms() {
     const payload = new HttpParams()
@@ -38,6 +47,36 @@ export class NaturalDisasterPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getCurrentCoordinates();
   }
+
+  options = {
+    timeout: 10000, 
+    enableHighAccuracy: true, 
+    maximumAge: 3600
+  };
+
+  getCurrentCoordinates() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude;
+    
+        const coords = new google.maps.LatLng(this.latitude, this.longitude)
+        const mapOptions  = {
+          center: coords,
+          zoom: 15,
+          mapTypeId : google.maps.MapTypeId.ROADMAP,
+          mapId : "75cd762b42b04465" 
+        }
+        this.map = new google.maps.Map(this.mapElement.nativeElement,mapOptions)
+         const mark =  new google.maps.Marker({
+           map: this.map,
+           position : coords
+         })
+      console.log(resp)
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+  } 
 
 }

@@ -1,25 +1,18 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { DestinationType } from '@awesome-cordova-plugins/camera';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { environment } from '../../environments/environment';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CameraPreview } from '@ionic-native/camera-preview/ngx';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { AlertController } from '@ionic/angular';
-
-// import { Twilio } from "twilio";
-// import * as twilio from 'twilio'
-
-// const accountSid = environment.TWILIO_ACCOUNT_SID;
-// const authToken = environment.TWILIO_AUTH_TOKEN;
-// const twilioNumber = "+12395108844"
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
+import {Observable} from 'rxjs';
 
 declare var google: any;
-
 
 @Component({
   selector: 'app-harassment',
@@ -28,33 +21,47 @@ declare var google: any;
 })
 
 export class HarassmentPage implements OnInit {
-  public text: string;
-  public from: string;
-  public to: string;
-
+  
   @ViewChild("map")  mapElement;
   private map: any;
   latitude:any= 0;
   longitude:any= 0;
 
-  imgURL;
+  imgURL:any;
 
-  // base64:string = "data:image/png;base64,";
+  public text: string;
+  public from: string;
+  public to: string;
+
+  contacts: any;
+  phone :number;
+
+  items : Observable<any[]>;
+  itemsRef: AngularFirestoreCollection;
 
   constructor(
     private camera: Camera,
     public firestore: AngularFirestore,
-    private sms: SMS,
     private geolocation: Geolocation,
     private http: HttpClient,
-    private alert: AlertController
-    // private preview: CameraPreview,
-    // private sanitizer: DomSanitizer
+    private alert: AlertController,
+    private callNumber: CallNumber,
+    
   ) {
     this.map = null;
-   }
+    this.itemsRef = firestore.collection('contacts')
+    this.items = this.itemsRef.valueChanges();
+  }
 
   ngOnInit() {
+    const loc = this.getCurrentCoordinates();
+
+    this.firestore.collection('contacts')
+    .valueChanges({idField: 'contact_id'})
+    .subscribe(contact => {
+      this.contacts = contact;
+      
+    })
   }
 
   getCamera(){
@@ -77,32 +84,6 @@ export class HarassmentPage implements OnInit {
     }).catch(e =>{
       console.log(`error: ${e}`)
     })
-  }
-
-  sendAlert(){
-
-    this.sms.send('+917870851359', 'Hello world!');
-    
-  //   // function validE164(num) {
-  //   //   return /^\+?[1-9]\d{1,14}$/.test(num)
-  //   // }
-
-  //   if (accountSid && authToken  && twilioNumber) {
-  //     const client = new Twilio(accountSid, authToken);
-    
-  //     client.messages
-  //       .create({
-  //         from: twilioNumber,
-  //         to: "+917870851359",
-  //         body: "Hey there from Safety App!!! Woah!!!",
-  //       })
-  //       .then((message) => console.log(message.sid));
-  //   } else {
-  //     console.error(
-  //       "You are missing one of the variables you need to send a message"
-  //     );
-  //   }
-  
   }
 
   options = {
@@ -128,14 +109,15 @@ export class HarassmentPage implements OnInit {
            map: this.map,
            position : coords
          })
-      console.log(resp)
+      // console.log(resp)
      }).catch((error) => {
        console.log('Error getting location', error);
      });
   } 
 
-  public sendSms() {
-    const payload = new HttpParams()
+  public async sendSms() {
+    this.text = `Pleaseeeeee HELP me !! I am in DANGER !! My location is : ` + `http://www.google.com/maps/place/`+ this.latitude +`,`+this.longitude;
+    const payload =  new HttpParams()
       .set('from', this.from)
       .set('to', this.to)
       .set('text', this.text);
@@ -151,6 +133,13 @@ export class HarassmentPage implements OnInit {
         const alert = await this.alert.create({ message: resp.message });
         await alert.present();
       });
+  }
+
+  call(){
+    console.log("calling")
+    this.callNumber.callNumber("7870851359", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
   }
 
 }

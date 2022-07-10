@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Forgot Password</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title >Forgot Password</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-label>Enter email</ion-label>
   <ion-input type = "email" [(ngModel)]="email" placeholder="Email" class="primary-input"></ion-input>
   <div>
-    <ion-button>
+    <ion-button color="tertiary">
       <ion-label (click)="forgot(email)">Send reset link</ion-label>
     </ion-button>
   </div>

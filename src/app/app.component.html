@@ -4,26 +4,26 @@
       <div class="menu-header-bg"></div>
       <div class="header-content">
         <ion-label>
-          <h1><b>My Safety App</b></h1>
+          <h1><b>Safety App</b></h1>
         </ion-label>
       </div>
       <ion-list class="menu-items" lines="none">
-        <ion-items [routerLink] = "['/emergency-contacts']" routerLinkActive="router-link-active"><p>
-          <ion-icon name="people"></ion-icon>Update Emergency Contact</p>
+        <ion-items (click)="emm()" routerLinkActive="router-link-active"><p>
+          <ion-icon name="people"></ion-icon>Emergency Contacts</p>
         </ion-items>
-        <ion-items [routerLink] = "['/harassment']" routerLinkActive="router-link-active"><p>
+        <ion-items (click)="harass()" routerLinkActive="router-link-active"><p>
           <ion-icon name="woman"></ion-icon>Woman Harassment</p>
         </ion-items>
-        <ion-items [routerLink] = "['/natural-disaster']" routerLinkActive="router-link-active"><p>
-          <ion-icon name="rainy"></ion-icon>Natural Disaster</p>
+        <ion-items (click)="disaster()" routerLinkActive="router-link-active"><p>
+          <ion-icon name="thunderstorm-sharp"></ion-icon>Natural Disaster</p>
         </ion-items>
-        <ion-items [routerLink] = "['/accident']" routerLinkActive="router-link-active"><p>
+        <ion-items (click)="accident()" routerLinkActive="router-link-active"><p>
           <ion-icon name="add"></ion-icon>Accident</p>
         </ion-items>
-        <ion-items [routerLink] = "['/fire-incident']" routerLinkActive="router-link-active"><p>
-          <ion-icon name="flame"></ion-icon>Fire-Gas Incident</p>
+        <ion-items (click)="fire()" routerLinkActive="router-link-active"><p>
+          <ion-icon name="flame"></ion-icon>Fire Incident</p>
         </ion-items>
-        <ion-items [routerLink] = "['/welcome']" routerLinkActive="router-link-active"><p>
+        <ion-items (click)="signout()" routerLinkActive="router-link-active"><p>
           <ion-icon name="exit-outline"></ion-icon>Sign-out</p>
         </ion-items>
       </ion-list>

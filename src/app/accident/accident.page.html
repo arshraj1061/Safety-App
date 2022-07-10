@@ -1,16 +1,61 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="tertiary">
     <ion-title>Accident Section</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div >
+    <ion-label color="danger">Emergency Call</ion-label>
+    <ion-item >
+      <ion-select  interface="action-sheet" placeholder="Select contact">
+        <ion-select-option *ngFor="let contact of contacts" >
+          <ion-button><strong>{{ contact.person.name }} : {{ contact.person.phone }} </strong>
+            <!-- <ion-button color ="danger" expand="full" (click) ="call(contact.person.phone)"> Call  -->
+              <ion-icon color="warning" slot="end" name="call"></ion-icon>
+            <!-- </ion-button> -->
+          </ion-button>
+      </ion-select-option>
+      </ion-select>  
+    </ion-item>
+  </div>
+
+  <ion-label color="danger">Emergency SMS</ion-label>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter the sender phone #" [(ngModel)]="from" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter the destination phone #" [(ngModel)]="to" type="tel"></ion-input>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-input placeholder="Enter your SMS message" [(ngModel)]="text"></ion-input>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-button expand="full" color="danger" (click)="sendSms()" class="buttons">
+          Send It!
+          <ion-icon slot="end" name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <div #map id="map"></div>
-  <div class="ion-padding">
-    <ion-button (click)="getCurrentCoordinates()" expand="block">
+  <!-- <div class="ion-padding">
+     <ion-button (click)="getCurrentCoordinates()" expand="block" color="tertiary">
       Get Location
-    </ion-button>
-  <ion-list>
+    </ion-button> -->
+  <!-- <ion-list>
     <ion-list-header>
       <ion-label>Location Coordinates</ion-label>
     </ion-list-header>
@@ -27,9 +72,14 @@
       <ion-badge color="danger" slot="end">{{longitude}}</ion-badge>
     </ion-item>
     </ion-list>    
-  </div>
+  </div> -->
+
+  <br>
+  <ion-button expand="full" color="danger" (click)="call()">
+    Emergency Call
+    <ion-icon slot="end" name="call"></ion-icon>
+  </ion-button>
   
 </ion-content>
-
 
 

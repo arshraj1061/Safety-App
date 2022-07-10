@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 import { SMS } from '@awesome-cordova-plugins/sms/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     NativeGeocoder,
     // SocialSharing,
     Camera,
-    SMS,
+    SMS,CallNumber,
     CameraPreview,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

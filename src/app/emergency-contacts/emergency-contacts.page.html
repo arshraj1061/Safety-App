@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="tertiary">
     <ion-buttons expand="block">
     </ion-buttons> 
-    <ion-title>Update Your Emergency Contacts</ion-title>
+    <ion-title>Emergency Contacts</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,23 +10,20 @@
     <ion-input [(ngModel)]="name" placeholder="Full Name" class="primary-input"></ion-input>
 
     <ion-input [(ngModel)]="phone" placeholder="Mobile" type="primary-input" class="primary-input"></ion-input> 
-    <ion-button  (click)="addNum()">Add number</ion-button>
-    
-
+    <ion-button  (click)="addNum()" color="tertiary">Add number</ion-button>
+  
     <ion-list>
       <ion-item *ngFor="let contact of contacts">
         <label>
-          <h2>{{ contact.person.name }}</h2>
+          <h2 >{{ contact.person.name }}</h2>
           <p>Number : <strong>{{ contact.person.phone }}</strong>
-          <ion-button slot="end" fill ="clear" color = "danger" (click)="remove()">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-button>
+            <ion-button slot="end" fill ="clear" color = "danger" (click)="remove(contact)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
           </p>
         </label>
 
       </ion-item>
     </ion-list>
-
-
   
 </ion-content>

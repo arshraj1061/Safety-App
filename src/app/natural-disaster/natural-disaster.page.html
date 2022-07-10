@@ -1,11 +1,15 @@
 <ion-header>
-  <ion-toolbar color="danger">
-    <ion-title>Natural Disaster Section</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title>Natural Disaster</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <div #map id="map"></div>
+  <!-- <ion-button (click)="getCurrentCoordinates()" expand="block" color="tertiary">
+    Get Location
+  </ion-button> -->
   <ion-grid>
    
     <ion-row>
@@ -27,7 +31,7 @@
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <ion-button expand="full" color="primary" (click)="sendSms()">
+        <ion-button expand="full" color="danger" (click)="sendSms()">
           Send It!
           <ion-icon slot="end" name="send-outline"></ion-icon>
         </ion-button>

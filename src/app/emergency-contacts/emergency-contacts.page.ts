@@ -79,9 +79,9 @@ export class EmergencyContactsPage implements OnInit {
    })
   }
 
-  remove(){
+  remove(contact){
     const contactRef = this.firestore.collection('contacts');
-    contactRef.doc('id').delete();
+    contactRef.doc(contact.id).delete();
   }
 
 }

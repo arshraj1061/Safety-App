@@ -1,35 +1,41 @@
 <ion-header>
-  <ion-toolbar color="danger">
-    <ion-title>Physical Harassment Section</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title>Woman Harassment</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
 
-  <div #map id="map"></div>
-  <div class="ion-padding">
-    <ion-button (click)="getCurrentCoordinates()" expand="block">
-      Get Location
-    </ion-button>
+  <div >
+    <ion-label color="danger">Emergency Call</ion-label>
+    <ion-item >
+      <ion-select  interface="action-sheet" placeholder="Select contact">
+        <ion-select-option *ngFor="let contact of contacts" >
+          <ion-button><strong>{{ contact.person.name }} : {{ contact.person.phone }} </strong>
+            <!-- <ion-button color ="danger" expand="full" (click) ="call(contact.person.phone)"> Call  -->
+              <ion-icon color="warning" slot="end" name="call"></ion-icon>
+            <!-- </ion-button> -->
+          </ion-button>
+      </ion-select-option>
+      </ion-select>  
+    </ion-item>
+    
   </div>
 
-  <span class="Camera">
-    <img src="{{imgURL}}" height ="200" width="200" />
-    
-     <ion-button (click) = "getCamera()">From Camera</ion-button>
-    <ion-button (click) = "getGallery()">From Gallery</ion-button>
-  </span>
-
+  <ion-label color="danger">Emergency SMS</ion-label>
   <ion-grid>
-   
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <ion-input placeholder="Enter the sender phone #" [(ngModel)]="from" type="tel"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="ion-align-self-center">
-        <ion-input placeholder="Enter the destination phone #" [(ngModel)]="to" type="tel"></ion-input>
+        
+        <ion-list>
+          <ion-item >
+            <ion-select  interface="popover" placeholder="Select contact">
+              <ion-select-option *ngFor="let contact of contacts" value="{{ contact.person.name }}">
+              <ion-label><strong>{{contact.person.name}}</strong></ion-label>
+            </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
     
@@ -38,10 +44,10 @@
         <ion-input placeholder="Enter your SMS message" [(ngModel)]="text"></ion-input>
       </ion-col>
     </ion-row>
-
+    
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <ion-button expand="full" color="primary" (click)="sendSms()">
+        <ion-button expand="full" color="danger" (click)="sendSms()" class="buttons">
           Send It!
           <ion-icon slot="end" name="send-outline"></ion-icon>
         </ion-button>
@@ -49,4 +55,21 @@
     </ion-row>
   </ion-grid>
 
-</ion-content>
+  <div #map id="map"></div>
+  
+   <!-- <div><img src="{{imgURL}}" height ="50" width="50" /></div>  -->
+    <div class ="buttons">
+    <ion-button (click) = "getCamera()" color="warning">Camera 
+      <ion-icon slot="end" name="camera-sharp"></ion-icon>
+    </ion-button>
+    <!-- <ion-button (click) = "getGallery()" color="warning">Gallery 
+      <ion-icon slot="end" name="images-sharp"></ion-icon>
+    </ion-button> -->
+  </div>
+
+  <!-- <ion-button expand="full" color="danger" (click)="call()" id="emer" class="buttons">
+    Emergency Call
+    <ion-icon slot="end" name="call"></ion-icon>
+  </ion-button>
+</div>
+</ion-content> -->

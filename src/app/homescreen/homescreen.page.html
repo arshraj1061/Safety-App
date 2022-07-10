@@ -1,20 +1,19 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-buttons expand="block">
         <ion-menu-button menu="main"></ion-menu-button>
       </ion-buttons> 
     </ion-buttons>
-    <ion-title>Safety App</ion-title>
+    <ion-title>SAFETY APP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
+<ion-content >
   <ion-grid>
     <ion-row>
-      <ion-col size="12">
-        <ion-icon name="person"></ion-icon>
+      <ion-col size="12" >
+        <ion-icon  name="person" color="primary"></ion-icon>
       </ion-col>
       <ion-col size="6">
         <ion-card color="danger" [routerLink] = "['/harassment']" routerLinkActive="router-link-active">
@@ -26,7 +25,7 @@
       </ion-col>
       <ion-col size="6">
         <ion-card color="danger" [routerLink] = "['/natural-disaster']" routerLinkActive="router-link-active">
-          <ion-icon name="rainy">
+          <ion-icon name="thunderstorm-sharp">
           </ion-icon>
           <ion-text><h2>Natural Disaster</h2></ion-text>
         </ion-card>
@@ -40,7 +39,7 @@
       </ion-col>
       <ion-col size="6">
         <ion-card color="danger" [routerLink] = "['/fire-incident']" routerLinkActive="router-link-active">
-          <ion-icon name="flame">
+          <ion-icon name="flame" >
           </ion-icon>
           <ion-text><h2>Fire Incident</h2></ion-text>
         </ion-card>

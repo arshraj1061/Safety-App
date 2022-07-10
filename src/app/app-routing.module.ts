@@ -50,11 +50,7 @@ const routes: Routes = [
   {
     path: 'emergency-contacts',
     loadChildren: () => import('./emergency-contacts/emergency-contacts.module').then( m => m.EmergencyContactsPageModule)
-  },
-  {
-    path: 'menu',
-    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
-  },
+  }
 ];
 
 @NgModule({
