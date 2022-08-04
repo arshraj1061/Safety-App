@@ -66,6 +66,7 @@ export class AccidentPage implements OnInit {
           center: coords,
           zoom: 15,
           mapTypeId : google.maps.MapTypeId.ROADMAP,
+          mapId : "75cd762b42b04465" 
         }
         this.map = new google.maps.Map(this.mapElement.nativeElement,mapOptions)
          const mark =  new google.maps.Marker({

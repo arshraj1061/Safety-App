@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import * as firebase from 'firebase/app'
-import firebaseConfig from './firebase';
-import { environment } from 'src/environments/environment';
 import { AngularFireAuth } from "@angular/fire/auth";
-
 
 @Component({
   selector: 'app-root',
@@ -17,11 +13,13 @@ import { AngularFireAuth } from "@angular/fire/auth";
 export class AppComponent {
   modalCtrl: any;
   menu: any;
+  alertController: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
+    public AlertController: AlertController,
     private afAuth:AngularFireAuth
 
   ) {
@@ -40,14 +38,7 @@ export class AppComponent {
   }
 
   ngOnInit() {}
-
-  //async dismiss() {
-   // await this.modalCtrl.dismiss();
-  //}
-
-  // dismiss(){
-  //   this.menu.toggle();
-  // }
+ 
   
   emm(){
     this.router.navigateByUrl("/emergency-contacts",{
@@ -99,4 +90,4 @@ export class AppComponent {
     })
    }
 
-}
+  }

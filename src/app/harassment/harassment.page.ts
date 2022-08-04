@@ -116,7 +116,7 @@ export class HarassmentPage implements OnInit {
   } 
 
   public async sendSms() {
-    this.text = `Pleaseeeeee HELP me !! I am in DANGER !! My location is : ` + `http://www.google.com/maps/place/`+ this.latitude +`,`+this.longitude;
+    this.text = `Please HELP me !! I am in DANGER !! My location is : ` + `http://www.google.com/maps/place/`+ this.latitude +`,`+this.longitude;
     const payload =  new HttpParams()
       .set('from', this.from)
       .set('to', this.to)
